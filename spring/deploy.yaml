@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sprint
+spec:
+  selector:
+    matchLabels:
+      app: sprint
+  template:
+    metadata:
+      labels:
+        app: sprint
+    spec:
+      containers:
+      - name: sprint
+        image: nginx:1.25-alpine
+        resources:
+          limits:
+            memory: "50Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring
+spec:
+  selector:
+    app: spring
+  ports:
+  - port: 80
+    targetPort: 80
+
