@@ -2,18 +2,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sprint
+  name: spring
 spec:
   selector:
     matchLabels:
-      app: sprint
+      app: spring
   template:
     metadata:
       labels:
-        app: sprint
+        app: spring
     spec:
       containers:
-      - name: sprint
+      - name: spring
         image: nginx:1.25-alpine
         resources:
           limits:
